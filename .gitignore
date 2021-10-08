@@ -4,3 +4,36 @@
 *.desugared.aterm
 *.scopegraph
 
+# macOS
+*.DS_Store
+
+# Java
+*.class
+*.jar
+hs_err_pid*
+
+# Python
+__pycache__/
+
+# Gradle
+**/.gradle
+**/build/
+!.gradlew/wrapper/gradle-wrapper.jar
+
+# IntelliJ
+**/.idea
+**/out
+
+# Eclipse
+**/.project
+**/.settings
+**/.classpath
+**/.factorypath
+**/bin
+
+# Spoofax
+**/src-gen
+**/target
+
+# Eclipse Runner
+Eclipse.app/
