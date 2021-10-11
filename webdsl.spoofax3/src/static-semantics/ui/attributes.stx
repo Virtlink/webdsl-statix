@@ -28,11 +28,11 @@ rules // attributes
 
   attributesOk maps attributeOk(*, list(*))
   attributeOk : scope * Attribute
-  attributeOk(s, _) :- // TO-DO: :- false | error $[This UI attribute is not implemented yet].
-    try { false } | warning $[This UI attribute is not implemented yet].
+  //attributeOk(s, _) :- // TO-DO: :- false | error $[This UI attribute is not implemented yet].
+  //  try { false } | warning $[This UI attribute is not implemented yet].
 
-  attributeOk(s, AttributeExpandLocal(_, _, _)) :- // TO-DO
-    try { false } | warning $[Expand attributes not implemented yet].
+  //attributeOk(s, AttributeExpandLocal(_, _, _)) :- // TO-DO
+  //  try { false } | warning $[Expand attributes not implemented yet].
 
   attributeOk(s, Attribute(_, exp)) :- typed(s, exp).
   attributeOk(s, XMLAttributesIf(c, attributes)) :-
@@ -47,7 +47,7 @@ rules // attributes
   attributeOk(s, CommonAttribute2Attribute(ca)) :- commonAttributeOk(s, ca).
 
   commonAttributeOk : scope * CommonAttribute
-  commonAttributeOk(_, _) :- try { false } | warning $[This common attribute is not yet implemented].
+  //commonAttributeOk(_, _) :- try { false } | warning $[This common attribute is not yet implemented].
   commonAttributeOk(s, AllAttributes()).
   commonAttributeOk(s, AllAttributesExceptExp(exp)) :- {t}
     t == typeOfExp(s, exp),

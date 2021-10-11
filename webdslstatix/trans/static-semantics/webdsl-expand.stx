@@ -63,7 +63,7 @@ rules
 
   deriveBodyElementsOk maps deriveBodyElementOk(*, *, list(*))
   deriveBodyElementOk : scope * scope * DeriveBodyElement
-  deriveBodyElementOk(_, _, _) :- try { false } | warning $[This element is not yet supported].
+  //deriveBodyElementOk(_, _, _) :- try { false } | warning $[This element is not yet supported].
 
 rules
 

@@ -56,8 +56,8 @@ rules
 
   annotationsOk maps annotationOk(*, *, *, list(*))
   annotationOk : scope * string * TYPE * Annotation
-  annotationOk(_, _, _, a) :-
-    try { false } | warning $[Static analysis not implemented for this annotation] @a.
+  //annotationOk(_, _, _, a) :-
+  //  try { false } | warning $[Static analysis not implemented for this annotation] @a.
 
   annotationOk(s, p, _, TransientAnno()) :-
     declareAnnotation(s, p, TRANSIENT()).

@@ -44,7 +44,7 @@ rules // attributes
   attributeOk(s, CommonAttribute2Attribute(ca)) :- commonAttributeOk(s, ca).
 
   commonAttributeOk : scope * CommonAttribute
-  commonAttributeOk(_, _) :- try { false } | warning $[This common attribute is not yet implemented].
+  //commonAttributeOk(_, _) :- try { false } | warning $[This common attribute is not yet implemented].
   commonAttributeOk(s, AllAttributes()).
   commonAttributeOk(s, AllAttributesExceptExp(exp)) :- {t}
     t == typeOfExp(s, exp),
