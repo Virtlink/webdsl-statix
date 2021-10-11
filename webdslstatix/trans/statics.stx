@@ -21,3 +21,7 @@ rules // multi-file entry point
   fileOk : scope * Unit
   fileOk(s_global, u) :-
     unitOk(s_global, u).
+
+rules
+
+  fileOk(_, Unit-Plhdr()).

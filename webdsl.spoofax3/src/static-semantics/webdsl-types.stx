@@ -281,3 +281,11 @@ rules // utils
   equalTypeB : TYPE * TYPE -> BOOL
   equalTypeB(T, T) = TRUE().
   equalTypeB(_, _) = FALSE().
+
+rules
+
+  typeOfConst(_, ConstValue-Plhdr()) = _.
+  stringOk(_, String-Plhdr()).
+  stringPartOk(_, StringPart-Plhdr()).
+  typeOfSortTyped(_, Sort-Plhdr()) = _.
+  typeOfSort(_, Sort-Plhdr()) = _.

@@ -48,3 +48,15 @@ rules
   typeOfHqlExpression(s, HQLMax(e)) = int(s) :- { t } t == typeOfHqlExpression(s, e). // TO-DO: possibly return float instead of int, based on selection
   typeOfHqlExpression(s, HQLCountStar()) = int(s).
   typeOfHqlExpression(s, HQLCount(e)) = int(s) :- { t } t == typeOfHqlExpression(s, e).
+
+rules
+
+  typeOfHqlExp(_, HqlExp-Plhdr()) = _.
+  typeOfHqlQueryRule(_, HQLQueryRule-Plhdr()) = _.
+  typeOfHqlSelectFrom(_, HQLSelectClauseOpt-Plhdr(), _) = _.
+  typeOfHqlSelectFrom(_, _, HQLFromClause-Plhdr()) = _.
+  typeOfHqlSelect(_, HQLSelection-Plhdr()) = _.
+  typeOfHqlFrom(_, HQLFromClause-Plhdr()) = _.
+  typeOfHqlFromRange(_, HQLFromRange-Plhdr()) = _.
+  typeOfHqlAliasedExpression(_, HQLAliasedExpression-Plhdr()) = _.
+  typeOfHqlExpression(_, HQLExpression-Plhdr()) = _.

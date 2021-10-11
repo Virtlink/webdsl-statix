@@ -22,3 +22,7 @@ rules
   serviceModsOk maps serviceModOk(*, list(*))
   serviceModOk : scope * Modifier
   serviceModOk(_, m) :- false | error $[Modifier [m] not allowed in a service definition].
+
+rules
+
+  serviceModOk(_, Modifier-Plhdr()).

@@ -211,3 +211,10 @@ rules // extension
              and { s' :- s' == s }
              min $ < EXTEND, $ < INHERIT, EXTEND < INHERIT
              in s_extending |-> ps.
+
+rules
+
+  declareEnumValue(_, EnumValue-Plhdr(), _).
+  declEntityBodyDeclaration(_, EntityBodyDeclaration-Plhdr()).
+  isValidTypeForPropKind(PropKind-Plhdr(), _, _).
+  isValidTypeForPropKind(_, Sort-Plhdr(), _).

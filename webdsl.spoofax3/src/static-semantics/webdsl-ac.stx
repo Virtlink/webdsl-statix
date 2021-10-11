@@ -259,3 +259,16 @@ rules // utils
     resolveType(s, "securityContext") == [(_, (_, NATIVECLASS(s_securityContext)))] | error $[securityContext not defined],
     queryResultTypes(resolveProperty(s_securityContext, "credentials")) == ts,
     ts == [_ | _] | error $[No credentials have been defined].
+
+rules
+
+  acRuleOk(_, AccessControlRule-Plhdr()).
+  nestedAcRuleOk(_, AccessControlRule-Plhdr()).
+  acRuleSignatureOk(_, AccessControlType-Plhdr(), _, _).
+  acRuleSignatureOk(_, _, MatchName-Plhdr(), _).
+  acRuleSignatureOk(_, _, _, OptMatchArgs-Plhdr()).
+  predicateOk(_, _, OptFormalArgs-Plhdr(), _, _).
+  predicateOk(_, _, _, Exp-Plhdr(), _).
+  acPointcutElemOk(_, _, _, _, AccessControlPointcutElement-Plhdr()).
+  acPointcutElementDefined(_, _, AccessControlPointcutElement-Plhdr()).
+  acPointcutElementArgsCompatible(_, _, OptWildCardArg-Plhdr()).

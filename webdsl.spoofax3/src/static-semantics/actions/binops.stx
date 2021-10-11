@@ -152,3 +152,8 @@ rules // utils
   equalNumericType(t@BUILTINTYPE("Long", _), BUILTINTYPE("Int", _)) = t.
   equalNumericType(t@BUILTINTYPE("Long", _), BUILTINTYPE("Long", _)) = t.
   equalNumericType(t@BUILTINTYPE("Float", _), BUILTINTYPE("Float", _)) = t.
+
+rules
+
+  typeOfAdd(_, Exp-Plhdr(), _) = _.
+  typeOfAdd(_, _, Exp-Plhdr()) = _.

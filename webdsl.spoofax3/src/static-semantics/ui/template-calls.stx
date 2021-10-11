@@ -125,3 +125,13 @@ rules // mutability check for input templates
   isMutableExp(s, FieldAccess(FAVar(var), x), t) :- {varType}
     varType == variableType(s, var),
     isMutableProperty(varType, x).
+
+rules
+
+  ajaxTemplateCallOk(_, _, TemplateCall-Plhdr()).
+  templateCallOk(_, _, TemplateCall-Plhdr()).
+  templateCallOk_internal(_, _, TemplateCall-Plhdr(), _).
+  typeOfTemplateArgExp(_, TemplateArgExp-Plhdr()) = _.
+  pageCallOk(_, PageCall-Plhdr()).
+  templatePropAssignmentOk(_, PropertyAssignment-Plhdr()) = _.
+  isMutableExp(_, Exp-Plhdr(), _).

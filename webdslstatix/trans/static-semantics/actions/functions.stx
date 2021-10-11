@@ -267,3 +267,11 @@ rules  // rules and functions for function overloading
   dropPaths maps dropPath(list(*)) = list(*)
   dropPath : (path * (string * TYPE)) -> (string * TYPE)
   dropPath((_, x)) = x.
+
+rules
+
+  timeIntervalPartOk(_, TimeIntervalPart-Plhdr()).
+  globalFunctionOk(_, Function-Plhdr()).
+  entityFunctionOk(_, Function-Plhdr(), _).
+  canBeCached(_, Function-Plhdr()).
+

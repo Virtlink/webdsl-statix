@@ -20,3 +20,7 @@ rules
   typeOfRetrievalExp(s, Suggest(_, _, _)) = LIST(string(s)).
   //typeOfRetrievalExp(_, _) = UNTYPED() :- // TO-DO
   //  try { false } | warning $[This expression is not implemented yet].
+
+rules
+
+  typeOfRetrievalExp(_, RetrievalExp-Plhdr()) = _.

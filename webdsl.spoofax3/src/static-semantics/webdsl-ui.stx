@@ -276,3 +276,14 @@ rules // utils
   typesOfTemplateArgs maps typeOfTemplateArg(*, list(*)) = list(*)
   typeOfTemplateArg : scope * TemplateArg -> (string * list(TYPE))
   typeOfTemplateArg(s, TemplateArg(x, argSorts)) = (x, typesOfSorts(s, argSorts)).
+
+rules
+
+  pageModOk(_, Modifier-Plhdr()).
+  defineTemplateOk(_, TemplateDefinition-Plhdr()).
+  templateModOk(_, Modifier-Plhdr()).
+  nestedTemplateOk(_, TemplateDefinition-Plhdr()).
+  overriddenElementExists(_, Modifier-Plhdr(), _, _, _).
+  templateElementOk(_, _, _, TemplateElement-Plhdr()).
+  jsStringPartOk(_, JSPart-Plhdr()).
+  typeOfTemplateArg(_, TemplateArg-Plhdr()) = _.

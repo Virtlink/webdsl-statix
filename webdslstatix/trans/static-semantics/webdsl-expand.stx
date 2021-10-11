@@ -70,3 +70,10 @@ rules
   defOk(s, DeriveCrud(ent)) :- { t }
     t == typeOfSort(s, SimpleSort(ent)) | error $[The entity [ent] does not exist],
     typeCompatible(t, entity(s)) | error $[The entity [ent] does not exist].
+
+rules
+
+  derivePropertyOk(_, _, _, DeriveProperty-Plhdr()).
+  deriveBodyOk(_, _, DeriveBody-Plhdr()).
+  deriveBodyElementOk(_, _, DeriveBodyElement-Plhdr()).
+

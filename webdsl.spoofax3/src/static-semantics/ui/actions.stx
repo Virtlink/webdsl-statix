@@ -109,3 +109,9 @@ rules // expressions
 
   typeOfExp(s, ValidateTemplateFunctionCall(tc)) = string(s) :-
     templateCallOk(s, new, tc).
+
+rules
+
+  templateVarDeclOk(_, _, VarDecl-Plhdr()).
+  actionCallOrInlineOrExpOk(_, ActionCallOrInlineOrExp-Plhdr()).
+  actionCallOrInlineOk(_, ActionCallOrInline-Plhdr()).

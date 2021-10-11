@@ -344,3 +344,8 @@ rules // misc
 
   stmtOk(s, _, ValidateStatement(validateExp, messageExp), _) :- validateOk(s, validateExp, messageExp).
   stmtOk(s, _, NamedValidateStatement(_, validateExp, messageExp), _) :- validateOk(s, validateExp, messageExp).
+
+rules
+
+  typeOfCollectionIndex(_, Exp-Plhdr(), _) = _.
+  typeOfCollectionIndex(_, _, Exp-Plhdr()) = _.
