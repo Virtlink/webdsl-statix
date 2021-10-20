@@ -15,6 +15,8 @@ rules
   fileOk(s_global, u) :-
     unitOk(s_global, u).
 
-rules
-
-  fileOk(_, Unit-Plhdr()).
+  programOk : Unit
+  programOk(u) :- {s_global}
+    new s_global,
+    projectOk(s_global),
+    fileOk(s_global, u).
