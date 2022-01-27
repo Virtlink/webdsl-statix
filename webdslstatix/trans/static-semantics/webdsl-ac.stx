@@ -93,7 +93,7 @@ rules // access control rules
   acDefOk(s, Rule(r)) :- acRuleOk(s, r).
 
   acRuleOk : scope * AccessControlRule
-  //acRuleOk(_, _) :- try { false } | warning $[This access control rule is not yet implemented].
+  
   acRuleOk(s, AccessControlRule(t, x, mas@MatchArgs(args, _), exp, nested)) :- { s_rule argTypes principalType bool }
     acRuleSignatureOk(s, t, x, mas),
     bool == bool(s),
@@ -130,7 +130,6 @@ rules // access control rules
     equalType(typeOfExp(s_rule, exp), bool(s)) | error $[Rule should contain a Bool expression] @exp. // correct error message for tests
 
   acRuleSignatureOk : scope * AccessControlType * MatchName * OptMatchArgs
-  //acRuleSignatureOk(_, _, m, _) :- try { false } | warning $[This access control signature is not checked yet] @m.
 
   // a wildcard in the name is always ok
   acRuleSignatureOk(_, _, MatchNameWildCard(), _).

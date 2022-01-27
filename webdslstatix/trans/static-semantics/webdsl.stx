@@ -401,10 +401,10 @@ rules // typing
     t != UNTYPED() | error $[Cannot resolve type [t]] @exp.
 
   typeOfSimpleExp : scope * SimpleExp -> TYPE
-  //typeOfSimpleExp(s, exp) = UNTYPED() :- try { false } | warning $[typing of expression [exp] is not yet implemented].
+  typeOfSimpleExp(s, exp) = UNTYPED() :- try { false } | warning $[typing of expression [exp] is not yet implemented].
 
   typeOfPlaceholderExp : scope * PHExp -> TYPE
-  //typeOfPlaceholderExp(s, exp) = UNTYPED() :- try { false } | warning $[typing of expression [exp] is not yet implemented].
+  typeOfPlaceholderExp(s, exp) = UNTYPED() :- try { false } | warning $[typing of expression [exp] is not yet implemented].
 
   typesCompatible : list(TYPE) * list(TYPE) -> BOOL
   typesCompatible([], []) = TRUE().

@@ -55,23 +55,78 @@ rules
   typeOfHqlAliasedExpression(_, _, AliasedExpression(_, a@AsAlias(_))) = t :- try { false } | warning $[Aliased expressions not yet implemented] @a.
 
   typeOfHqlExpression : scope * scope * HQLExpression -> TYPE
-  typeOfHqlExpression(_, _, e) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@HQLDslExp(_)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  
+  typeOfHqlExpression(_, s_query, HQLPath(Path([p]))) = LIST(t) :- { p' }
+    resolveVar(s_query, p) == [(_, (p', t))] | error $[Cannot resolve [p]],
+    @p.type := t,
+    @p.ref := p'.
+  typeOfHqlExpression(s, s_query, HQLPath(Path([ent, prop]))) = LIST(t) :- { ent' entityType }
+    resolveVar(s_query, ent) == [(_, (ent', entityType))] | error $[Cannot resolve [ent]] @ent,
+    t == typeOfProperty(s, entityType, prop),
+    @ent.type := entityType,
+    @ent.ref := ent'.
+    
+  typeOfHqlExpression(_, _, e@HQLExpressions(_)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@HQLQueryRule(_)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@HQLQueryRuleAlt(_)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  
+  typeOfHqlExpression(_, _, e@QueryOr(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@QueryAnd(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@QueryNot(_)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  
+  typeOfHqlExpression(_, _, e@QueryEq(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@QueryIs(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@QueryNe(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@QuerySqlNe(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@QueryLike(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@QueryNotLike(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  
+  typeOfHqlExpression(_, _, e@QueryLt(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@QueryLe(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@QueryGt(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@QueryGe(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  
+  typeOfHqlExpression(_, _, e@QueryIn(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@QueryNotIn(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@QueryMemberOf(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@QueryNotMemberOf(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  
+  typeOfHqlExpression(_, _, e@QueryConcat(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  
+  typeOfHqlExpression(_, _, e@QueryPlus(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@QueryMinus(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  
+  typeOfHqlExpression(_, _, e@QueryMultiply(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@QueryDivide(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@QueryModulo(_, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  
+  typeOfHqlExpression(_, _, e@QueryUMinus(_)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  
+  typeOfHqlExpression(_, _, e@HQLFunCurDate()) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@HQLFunCurTime()) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@HQLFunCurTimestamp()) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@HQLFunSecond(_)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@HQLFunMinute(_)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@HQLFunHour(_)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@HQLFunDay(_)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@HQLFunMonth(_)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@HQLFunYear(_)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  
   typeOfHqlExpression(s, s_query, HQLAvg(e)) = float(s) :- { t } t == typeOfHqlExpression(s, s_query, e).
   typeOfHqlExpression(s, s_query, HQLSum(e)) = int(s) :- { t } t == typeOfHqlExpression(s, s_query, e). // TO-DO: possibly return float instead of int, based on selection
   typeOfHqlExpression(s, s_query, HQLMin(e)) = int(s) :- { t } t == typeOfHqlExpression(s, s_query, e). // TO-DO: possibly return float instead of int, based on selection
   typeOfHqlExpression(s, s_query, HQLMax(e)) = int(s) :- { t } t == typeOfHqlExpression(s, s_query, e). // TO-DO: possibly return float instead of int, based on selection
   typeOfHqlExpression(s, s_query, HQLCountStar()) = int(s).
   typeOfHqlExpression(s, s_query, HQLCount(e)) = int(s) :- { t } t == typeOfHqlExpression(s, s_query, e).
-  typeOfHqlExpression(_, s_query, HQLPath(Path([p]))) = LIST(t) :- { p' }
-    resolveVar(s_query, p) == [(_, (p', t))] | error $[Cannot resolve [p]],
-    @p.type := t,
-    @p.ref := p'.
+  typeOfHqlExpression(_, _, e@HQLSize(_)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@HQLSubString(_, _, _)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  
+  typeOfHqlExpression(_, _, e@HQLElements(_)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  typeOfHqlExpression(_, _, e@HQLIndices(_)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
+  
+  typeOfHqlExpression(_, _, e@HQLConstant(_)) = UNTYPED() :- try { false } | warning $[HQL Expression [e] not yet implemented] @e.
 
-  typeOfHqlExpression(s, s_query, HQLPath(Path([ent, prop]))) = LIST(t) :- { ent' entityType }
-    resolveVar(s_query, ent) == [(_, (ent', entityType))] | error $[Cannot resolve [ent]] @ent,
-    t == typeOfProperty(s, entityType, prop),
-    @ent.type := entityType,
-    @ent.ref := ent'.
 
 rules // fill scope graph using HQL From clause
 

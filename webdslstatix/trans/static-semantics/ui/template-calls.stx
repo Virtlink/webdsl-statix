@@ -48,8 +48,8 @@ rules // template calls
   typeOfTemplateArgExp : scope * TemplateArgExp -> TYPE
   typeOfTemplateArgExp(s, Exp(exp))                      = typeOfExp(s, exp).
   typeOfTemplateArgExp(s, TemplateElementsArgument(exp)) = TEMPLATEELEMENTS().
-  //typeOfTemplateArgExp(s, ExpEntityDerive(_, _))         = UNTYPED() :- // TO-DO
-  //  try { false } | warning $[Derive expressions not implemented yet].
+  typeOfTemplateArgExp(s, ExpEntityDerive(_, _))         = UNTYPED() :- // TO-DO
+    try { false } | warning $[Derive expressions not implemented yet].
 
 rules // pre-defined template calls
 

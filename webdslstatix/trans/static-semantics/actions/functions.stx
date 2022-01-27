@@ -268,7 +268,7 @@ rules  // rules and functions for function overloading
   dropPath : (path * (string * TYPE)) -> (string * TYPE)
   dropPath((_, x)) = x.
 
-rules
+rules // placeholders
 
   timeIntervalPartOk(_, TimeIntervalPart-Plhdr()).
   globalFunctionOk(_, Function-Plhdr()).

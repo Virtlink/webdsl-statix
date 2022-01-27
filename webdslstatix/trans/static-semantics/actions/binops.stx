@@ -159,3 +159,8 @@ rules // utils
   // implicit widening from float to double
   equalNumericType(t@NATIVECLASS("Double", _) , BUILTINTYPE("Float", _))    = t.
   equalNumericType(BUILTINTYPE("Float", _)    , t@NATIVECLASS("Double", _)) = t.
+
+rules // placeholders
+
+  typeOfAdd(_, Exp-Plhdr(), _) = _.
+  typeOfAdd(_, _, Exp-Plhdr()) = _.

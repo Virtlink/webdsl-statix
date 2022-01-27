@@ -44,7 +44,7 @@ rules
 
   derivePropertiesOk maps derivePropertyOk(*, *, *, list(*))
   derivePropertyOk : scope * TYPE * string * DeriveProperty
-  derivePropertyOk(_, _, _, _) :- try { false } | warning $[This element is not yet supported].
+  derivePropertyOk(_, _, _, DeriveMode(_, _)) :- try { false } | warning $[This element is not yet supported].
   derivePropertyOk(s, t_ent, _, DeriveDefault(prop)) :- { entityName t }
     t_ent == ENTITY(entityName, _),
     t == typeOfProperty(s, t_ent, prop) | error $[Entity [entityName] has no property [prop]], // correct error message for tests
@@ -63,7 +63,7 @@ rules
 
   deriveBodyElementsOk maps deriveBodyElementOk(*, *, list(*))
   deriveBodyElementOk : scope * scope * DeriveBodyElement
-  //deriveBodyElementOk(_, _, _) :- try { false } | warning $[This element is not yet supported].
+  deriveBodyElementOk(_, _, DeriveBodyElement(_, _)) :- try { false } | warning $[This element is not yet supported].
 
 rules
 

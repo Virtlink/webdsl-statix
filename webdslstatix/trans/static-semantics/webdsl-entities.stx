@@ -108,7 +108,6 @@ rules // entity declaration
 rules // entity body declaration
 
   declEntityBodyDeclaration : scope * string * EntityBodyDeclaration
-  declEntityBodyDeclaration(_, _, _) :- try { false } | warning $[This entity body declaration is not yet implemented].
   declEntityBody maps declEntityBodyDeclaration(*, *, list(*))
 
   // entity function
@@ -173,6 +172,15 @@ rules // entity body declaration
 
   // validation
   declEntityBodyDeclaration(s, _, ValidateEntity(validateExp, messageExp)) :- validateOk(s, validateExp, messageExp).
+  
+  // not implemented
+  declEntityBodyDeclaration(_, _, CachedEntity()) :- try { false } | warning $[This entity body declaration is not yet implemented].
+  declEntityBodyDeclaration(_, _, ExtendFunction(_)) :- try { false } | warning $[This entity body declaration is not yet implemented].
+  declEntityBodyDeclaration(_, _, EntityBodyDeclarationExpandLocal(_, _, _)) :- try { false } | warning $[This entity body declaration is not yet implemented].
+  declEntityBodyDeclaration(_, _, GeneratedEntityBodyDeclaration(_)) :- try { false } | warning $[This entity body declaration is not yet implemented].
+  declEntityBodyDeclaration(_, _, SearchMappingEmbedded(_)) :- try { false } | warning $[This entity body declaration is not yet implemented].
+  declEntityBodyDeclaration(_, _, SearchMappingEmbeddedDepr(_)) :- try { false } | warning $[This entity body declaration is not yet implemented].
+  declEntityBodyDeclaration(_, _, SyncConfigEmbedded2EntityBodyDeclaration(SyncConfigEmbedded(_))) :- try { false } | warning $[This entity body declaration is not yet implemented].
 
 rules // entity resolving
 
