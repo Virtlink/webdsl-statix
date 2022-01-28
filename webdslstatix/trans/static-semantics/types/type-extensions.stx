@@ -35,6 +35,6 @@ rules // typing of expressions
   typeOfCall(s, STATICBUILTINTYPE(_, s_type), f, args) = typeOfFunctionCallInternal(s, f, args, funSigs) :-
     funSigs == resolveStaticEntityFunction(s_type, f).
 
-rules
+rules // placeholders
 
   typeElementOk(_, _, TypeElement-Plhdr()).

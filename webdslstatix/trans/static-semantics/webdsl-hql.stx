@@ -199,3 +199,26 @@ rules // utils
     xType == stripOptionalSetOrListType(typeOfProperty(s, entityType, x)),
     xType == ENTITY(_, _) | error $[Property [x] is not an entity] @x,
     t == typeOfHqlFromPathTail(s, xType, tail).
+
+rules // placeholders
+
+  typeOfHqlExp(_, HqlExp-Plhdr()) = _.
+  typeOfHqlQueryRule(_, HQLQueryRule-Plhdr()) = _.
+  typeOfHqlSelectFrom(_, _, HQLSelectClauseOpt-Plhdr(), _) = _.
+  typeOfHqlSelectFrom(_, _, _, HQLFromClause-Plhdr()) = _.
+  typeOfHqlSelect(_, _, HQLSelection-Plhdr()) = _.
+  typeOfHqlFrom(_, HQLFromClause-Plhdr()) = _.
+  typeOfHqlFromRange(_, HQLFromRange-Plhdr()) = _.
+  typeOfHqlAliasedExpression(_, _, HQLAliasedExpression-Plhdr()) = _.
+  typeOfHqlExpression(_, _, HQLExpression-Plhdr()) = _.
+  hqlFromClauseOk(_, _, HQLFromClause-Plhdr()).
+  hqlFromRangeJoinOk(_, _, HQLFromRangeJoin-Plhdr()).
+  hqlFromRangeOk(_, _, HQLFromRange-Plhdr()).
+  hqlFromJoinOk(_, _, HQLFromJoin-Plhdr()).
+  hqlWhereClauseOk(_, _, HQLWhereClauseOpt-Plhdr()).
+  hqlGroupByClauseOk(_, _, HQLGroupByClauseOpt-Plhdr()).
+  hqlOrderByClauseOk(_, _, HQLOrderByClauseOpt-Plhdr()).
+  limitValueExpOk(_, LimitValueExp-Plhdr()).
+  declAlias(_, _, HQLAsAliasOpt-Plhdr()).
+  typeOfHqlFromPath(_, _, HQLPath-Plhdr()) = _.
+  

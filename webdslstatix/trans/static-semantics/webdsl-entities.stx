@@ -228,3 +228,8 @@ rules // extension
              and { s' :- s' == s }
              min $ < EXTEND, $ < INHERIT, EXTEND < INHERIT
              in s_extending |-> ps.
+
+rules // placeholders
+
+  declareEnumValue(_, EnumValue-Plhdr(), _).
+  declEntityBodyDeclaration(_, _, EntityBodyDeclaration-Plhdr()).

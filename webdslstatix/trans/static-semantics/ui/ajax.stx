@@ -93,7 +93,7 @@ rules // ajax statements
   ajaxPlaceholderExpressionResultOk(s, [], e) :-
     typeCompatible(typeOfExp(s, e), string(s)) | error $[Type of expression [e] is not compatible with String or Placeholder] @e.
 
-rules
+rules // placeholders
 
   ajaxStmtOk(_, AjaxStatement-Plhdr()).
   ajaxPlaceholderExpressionOk(_, Exp-Plhdr()).

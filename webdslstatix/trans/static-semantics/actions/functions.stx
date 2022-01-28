@@ -274,4 +274,5 @@ rules // placeholders
   globalFunctionOk(_, Function-Plhdr()).
   entityFunctionOk(_, Function-Plhdr(), _).
   canBeCached(_, Function-Plhdr()).
+  typeOfArg(_, FormalArg-Plhdr()) = _.
 

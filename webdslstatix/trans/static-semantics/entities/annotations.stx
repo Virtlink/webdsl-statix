@@ -260,3 +260,9 @@ rules // utils
   emptyAnnotationResultB : list((path * (string * ANNOTATION))) -> BOOL
   emptyAnnotationResultB([]) = TRUE().
   emptyAnnotationResultB(_) = FALSE().
+
+rules // placeholders
+
+  annotationOk(_, _, _, Annotation-Plhdr()).
+  validateOk(_, Exp-Plhdr(), _).
+  validateOk(_, _, Exp-Plhdr()).

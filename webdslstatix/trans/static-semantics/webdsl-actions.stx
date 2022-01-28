@@ -345,7 +345,9 @@ rules // misc
   stmtOk(s, _, ValidateStatement(validateExp, messageExp), _) :- validateOk(s, validateExp, messageExp).
   stmtOk(s, _, NamedValidateStatement(_, validateExp, messageExp), _) :- validateOk(s, validateExp, messageExp).
 
-rules
+rules // placeholders
 
+  forLoopFilterOk(_, Filter-Plhdr()).
   typeOfCollectionIndex(_, Exp-Plhdr(), _) = _.
   typeOfCollectionIndex(_, _, Exp-Plhdr()) = _.
+  typeOfForExp(_, ForExp-Plhdr()) = _.

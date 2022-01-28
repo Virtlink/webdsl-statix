@@ -265,8 +265,9 @@ rules // utils
     queryResultTypes(resolveProperty(s_securityContext, "credentials")) == ts,
     ts == [_ | _] | error $[No credentials have been defined].
 
-rules
+rules // placeholders
 
+  acDefOk(_, AccessControlDefinition-Plhdr()).
   acRuleOk(_, AccessControlRule-Plhdr()).
   nestedAcRuleOk(_, AccessControlRule-Plhdr()).
   acRuleSignatureOk(_, AccessControlType-Plhdr(), _, _).

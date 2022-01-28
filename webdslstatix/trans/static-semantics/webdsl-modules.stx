@@ -119,3 +119,7 @@ rules // utils
   modulePartsToStrings maps modulePartToString(list(*)) = list(*)
   modulePartToString : ModulePart -> string
   modulePartToString(ModulePart(s)) = s.
+
+rules // placeholders
+
+  importModulesWildcard(_, _, Definition-Plhdr()).

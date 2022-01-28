@@ -73,3 +73,8 @@ rules // attribute collections
   defOk(s, AttributeCollection(AttributeCollectionOverride(), c, attrs)) :- {c'}
     resolveAttributeCollection(s, c) == [(_, c')] | error $[Attribute collection with name [c] not defined] @c, // correct error message for tests
     @c.ref := c'.
+
+rules // placeholders
+
+  attributeOk(_, Attribute-Plhdr()).
+  commonAttributeOk(_, CommonAttribute-Plhdr()).

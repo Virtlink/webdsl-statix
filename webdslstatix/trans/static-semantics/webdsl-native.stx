@@ -120,7 +120,7 @@ rules // typing of native types
   typeOfNativeType(s, NativeGenericType("Set", [t])) = SET(typeOfNativeType(s, t)).
   typeOfNativeType(s, t@NativeGenericType(_, _)) = UNTYPED() :- false | error $[Only lists and sets with one type parameter are supported] @t.
 
-rules
+rules // placeholders
 
   nativeClassElementOk(_, _, NCElement-Plhdr()).
   nativeClassFunctionOk(_, _, NCFunction-Plhdr()).

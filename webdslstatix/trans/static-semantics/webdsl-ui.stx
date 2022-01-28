@@ -317,7 +317,7 @@ rules // utils
   typeOfTemplateArg : scope * TemplateArg -> (string * list(TYPE))
   typeOfTemplateArg(s, TemplateArg(x, argSorts)) = (x, typesOfSorts(s, argSorts)).
 
-rules
+rules // placeholders
 
   pageModOk(_, Modifier-Plhdr()).
   defineTemplateOk(_, TemplateDefinition-Plhdr()).
@@ -326,4 +326,5 @@ rules
   overriddenElementExists(_, Modifier-Plhdr(), _, _, _).
   templateElementOk(_, _, _, TemplateElement-Plhdr()).
   jsStringPartOk(_, JSPart-Plhdr()).
+  typeOfTemplateVarArgProp(_, _, FormalVarArg-Plhdr()) = _.
   typeOfTemplateArg(_, TemplateArg-Plhdr()) = _.

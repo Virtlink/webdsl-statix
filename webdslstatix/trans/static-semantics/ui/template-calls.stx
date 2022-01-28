@@ -129,7 +129,7 @@ rules // mutability check for input templates
     varType == variableType(s, var),
     isMutableProperty(varType, x).
 
-rules
+rules // placeholders
 
   ajaxTemplateCallOk(_, _, TemplateCall-Plhdr()).
   templateCallOk(_, _, TemplateCall-Plhdr()).

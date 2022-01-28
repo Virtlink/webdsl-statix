@@ -22,6 +22,6 @@ rules // multi-file entry point
   fileOk(s_global, u) :-
     unitOk(s_global, u).
 
-rules
+rules // placeholders
 
   fileOk(_, Unit-Plhdr()).

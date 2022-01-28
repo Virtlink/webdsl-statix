@@ -192,3 +192,11 @@ rules // exp or template arg
   typeOfExpOrTemplateArg(s, ExpVarArgElements(elems)) = TEMPLATEELEMENTS() :- { s_eval }
     new s_eval, s_eval -P-> s,
     templateElementsOk(s_eval, new, elems).
+
+rules // placeholders
+  
+  templateVarDeclOk(_, _, VarDecl-Plhdr()).
+  actionCallOrInlineOrExpOk(_, ActionCallOrInlineOrExp-Plhdr()).
+  actionCallOrInlineOk(_, ActionCallOrInline-Plhdr()).
+  typeOfExpVarArg(_, ExpVarArg-Plhdr()) = _.
+  typeOfExpOrTemplateArg(_, ExpOrTemplateArg-Plhdr()) = _.

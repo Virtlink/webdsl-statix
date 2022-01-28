@@ -23,6 +23,6 @@ rules
   serviceModOk : scope * Modifier
   serviceModOk(_, m) :- false | error $[Modifier [m] not allowed in a service definition].
 
-rules
+rules // placeholders
 
   serviceModOk(_, Modifier-Plhdr()).

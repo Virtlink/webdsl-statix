@@ -103,3 +103,9 @@ rules // built in
   declareSearchBuiltIns : scope
   declareSearchBuiltIns(s) :-
     !searcher["Entity", "Searcher"] in s. // abstract searcher results in entity type
+
+rules // placeholders
+
+  typeOfRetrievalExp(_, RetrievalExp-Plhdr()) = _.
+  typeOfSearcherDef(_, SearcherDef-Plhdr()) = _.
+  searcherPartOk(_, SearcherPart-Plhdr()).

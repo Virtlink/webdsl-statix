@@ -517,13 +517,14 @@ rules // utils
   typeOfString(s, x) = t :-
     resolveVar(s, x) == [(_, (_, t))] | error $[Unable to find variable [x]].
 
-rules
+rules // placeholders
 
   unitOk(_, Unit-Plhdr()).
   sectionOk(_, Section-Plhdr()).
   defOk(_, Definition-Plhdr()).
   stmtOk(_, _, Statement-Plhdr(), _).
   expOk(_, Exp-Plhdr()).
+  typeOfExp(_, Exp-Plhdr()) = _.
   typeOfExpTyped(_, Exp-Plhdr()) = _.
   typeOfSimpleExp(_, SimpleExp-Plhdr()) = _.
   typeOfPlaceholderExp(_, PHExp-Plhdr()) = _.

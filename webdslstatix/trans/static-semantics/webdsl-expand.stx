@@ -71,7 +71,7 @@ rules
     t == typeOfSort(s, SimpleSort(ent)) | error $[The entity [ent] does not exist],
     typeCompatible(t, entity(s)) | error $[The entity [ent] does not exist].
 
-rules
+rules // placeholders
 
   derivePropertyOk(_, _, _, DeriveProperty-Plhdr()).
   deriveBodyOk(_, _, DeriveBody-Plhdr()).
