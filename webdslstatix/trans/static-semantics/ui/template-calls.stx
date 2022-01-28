@@ -94,13 +94,11 @@ rules // property assignments
     templatePropAssignmentsOkNoDuplicates(s, pas, [x | xs]).
 
   templatePropAssignmentOk : scope * PropertyAssignment -> string // return name of property for duplicate check
-  templatePropAssignmentOk(s, PropertyAssignmentExpandLocal(_)) = "_IGNORE" :- // TO-DO
+  templatePropAssignmentOk(s, PropertyAssignmentExpandLocal(_, _, _)) = "_IGNORE" :- // TO-DO
     try { false } | warning $[This template property assignment is not implemented yet].
   templatePropAssignmentOk(s, PropertySubmitColon(_, _)) = "_IGNORE" :- // TO-DO
     try { false } | warning $[This template property assignment is not implemented yet].
   templatePropAssignmentOk(s, PropertySubmitAssign(_, _)) = "_IGNORE" :- // TO-DO
-    try { false } | warning $[This template property assignment is not implemented yet].
-  templatePropAssignmentOk(s, PropertySubmit(_, _)) = "_IGNORE" :- // TO-DO
     try { false } | warning $[This template property assignment is not implemented yet].
   templatePropAssignmentOk(s, TemplateCallPropertyAjax()) = "_IGNORE" :- // TO-DO
     try { false } | warning $[This template property assignment is not implemented yet].
