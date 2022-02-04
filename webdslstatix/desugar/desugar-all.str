@@ -24,3 +24,7 @@ rules
   normalize = normalize-search
   normalize = normalize-test
   normalize = normalize-ui
+
+  override union(|) = (imset-from-list, imset-from-list); imset-union; imset-to-list
+
+  

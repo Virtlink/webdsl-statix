@@ -37,3 +37,7 @@ __pycache__/
 
 # Eclipse Runner
 Eclipse.app/
+
+/webdsl-benchmark/
+/webdsl-tests/
+/webdsl-results/
